@@ -1,4 +1,6 @@
-﻿Console.WriteLine("=== Sistema de clasificación de Prioridad Médica ===");
+﻿using System;
+
+Console.WriteLine("=== Sistema de clasificación de Prioridad Médica ===");
 Console.WriteLine("Seleccione el tipo de atención");
 Console.WriteLine("Emergencia(1) -- Consulta(2) --Pediatría(3) -- Traumatología(4)");
 Console.Write("Opción: ");
@@ -15,9 +17,9 @@ Console.Write("Temperatura (℃): ");
 double temperatura = int.Parse(Console.ReadLine());
 
 Console.Write("Preció sistólica: ");
-int precion = int.Parse(Console.ReadLine());
+int presion = int.Parse(Console.ReadLine());
 
-Console.Write("Nivel de dolor (0-10)");
+Console.Write("Nivel de dolor (0-10): ");
 int dolor = int.Parse(Console.ReadLine());
 
 if (edad < 0 && edad > 120)
@@ -45,16 +47,62 @@ else if (opcion < 1 && opcion > 4)
     Console.WriteLine("Error: opción no válida");
     return;
 }
- switch (opcion)
+switch (opcion)
 {
     case 1:
-        if (precion < 90)
+        if (presion < 90)
         {
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("prioridad 1");
             Console.WriteLine("Reanimación e intervención inmediata");
             Console.WriteLine("----------------------------------------");
-
+        }
+        else
+        {
+            if (presion <= 35 && dolor >= 8)
+            {
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("prioridad 2");
+                Console.WriteLine("Observación y estabilización urgente");
+                Console.WriteLine("----------------------------------------");
+            }
         }
         break;
+    case 2:
+        if (opcion == 2)
+        {
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("prioridad 3");
+            Console.WriteLine("Consulta externa programada");
+            Console.WriteLine("----------------------------------------");
+        }
+        break;
+    case 3:
+        if (edad < 12)
+        {
+            if (temperatura >= 38.5)
+            {
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("prioridad 1");
+                Console.WriteLine("Atención pediátrica prioritaria");
+                Console.WriteLine("----------------------------------------");
+            }
+            else if (oxigeno < 92)
+            {
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("prioridad ");
+                Console.WriteLine("Nebulización u oxígeno en observación");
+                Console.WriteLine("----------------------------------------");
+            }
+        }
+            break;
+    case 4:
+        if (dolor >= 9 || presion > 160)
+        {
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("prioridad ");
+            Console.WriteLine("Inmovilización y analgesia intravenosa");
+            Console.WriteLine("----------------------------------------");
+        }
+            break;
 }
