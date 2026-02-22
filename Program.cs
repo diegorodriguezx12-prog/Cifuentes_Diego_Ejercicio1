@@ -27,16 +27,26 @@ int dolor = int.Parse(Console.ReadLine());
 if (edad < 0 && edad > 120)
 {
     Console.WriteLine("Error: edad fuera de rango");
+    return;
 }
 else if (temperatura < 35 || temperatura > 45)
 {
     Console.WriteLine("Error: temperatura corporal no compatible con la vida");
+    return;
 }
 else if (oxigeno < 0 || oxigeno > 100)
 {
     Console.WriteLine("Error: nivel de oxígeno inválido");
+    return;
 }
 else if (dolor <0 && dolor > 10)
 {
     Console.WriteLine("Error: el nivel de dolor tiene que se de 0-10");
+    return;
 }
+else if (opcion < 1 && opcion > 4)
+{
+    Console.WriteLine("Error: opción no válida");
+    return;
+}
+ 
