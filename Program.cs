@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.Design;
-
-Console.WriteLine("----------------------------------------------------");
-Console.WriteLine("Sistema de clasificación de Prioridad Médica");
-Console.WriteLine("----------------------------------------------------");
+﻿Console.WriteLine("=== Sistema de clasificación de Prioridad Médica ===");
 Console.WriteLine("Seleccione el tipo de atención");
 Console.WriteLine("Emergencia(1) -- Consulta(2) --Pediatría(3) -- Traumatología(4)");
 Console.Write("Opción: ");
@@ -49,4 +45,16 @@ else if (opcion < 1 && opcion > 4)
     Console.WriteLine("Error: opción no válida");
     return;
 }
- 
+ switch (opcion)
+{
+    case 1:
+        if (precion < 90)
+        {
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("prioridad 1");
+            Console.WriteLine("Reanimación e intervención inmediata");
+            Console.WriteLine("----------------------------------------");
+
+        }
+        break;
+}
